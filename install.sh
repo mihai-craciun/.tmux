@@ -10,6 +10,12 @@ CRT_DIR=$(pwd)
 cd "$HOME/.tmux/plugins/tpm"
 git pull origin master
 git checkout master
+# Install plugins
+tmux start-server
+tmux new-session -d
+sleep 1
+$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
+tmux kill-server
 # Change back
 cd $CRT_DIR
 
